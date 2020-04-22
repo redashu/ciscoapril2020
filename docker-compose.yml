@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+ app111:
+  image: ashutoshh:day3v1   #  name of image you want to build
+  build:    # location of dockerfile 
+   context: .
+   dockerfile: ashu.dockerfile
+  container_name: ashuday3c11
+  ports:
+   - "9876:80"
+  environment:
+   x: "web1"
+  networks:
+   - ashubr111   #  use of network 
+
+
+networks:
+ ashubr111:     #creation of network 
+
+
+
