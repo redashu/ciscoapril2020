@@ -1,0 +1,9 @@
+version: '3.5'
+services:
+ app1:     #  app name you can give same
+  image: alpine #  docker  image
+  container_name: ashuc111  # unique name of container
+  command: ping fb.com  # parent process like CMD in Dockerfile
+
+
+ 

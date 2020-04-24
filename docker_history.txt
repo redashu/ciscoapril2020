@@ -1,0 +1,226 @@
+   56  docker  exec -it  ashuc11 sh 
+   57  docker  run  -itd  --name ashuc22  --network ashubr1  alpine  ping  fb.com 
+   58  docker  exec -it  ashuc22 sh 
+   59  docker  exec -it  ashuc11 sh 
+   60  docker  network   connect  ashubr1  ashuc11  
+   61  docker  exec -it  ashuc11 sh 
+   63  docker  network   connect  vikash1  ashuc11  
+   64  docker  exec -it  ashuc11 sh 
+   66  docker kill  $(docker ps  -aq)
+   67  docker rm   $(docker ps  -aq)
+   68  docker  run --name d0c1  -itd  alpine ping fb.com 
+   69  docker  run --name ashubr1c1  -itd  --network  ashubr1    alpine ping fb.com 
+   70  docker  network   connect  ashubr1   d0c1 
+   71  docker  exec  -it  d0c1  sh 
+   73  docker  exec  -it  ashubr1c1  sh  
+   74  docker  exec  -it  d0c1  sh  
+   77  docker  ps
+   78  docker  exec  -it  c1  cal 
+   79  docker  exec  -it  c1  ping  google.com 
+   80  docker  exec  -it  c1  yes  
+   81  cat  /etc/sysconfig/docker
+   83  docker  ps  -a
+   84  docker  rm  $(docker ps -aq)
+   85  docker  network  ls
+   86  docker network  rm   $(docker  network ls -q)
+   87  docker  network   ls
+   88  docker  network   create   aa  
+   89  docker  network   ls
+   90  docker  network  inspect  aa
+   92  docker  run --name c1 -d  alpine ping  fb.com 
+   93  docker  ps
+   94  docker  stats  c1  
+   98  docker  ps
+   99  docker  run  -itd  --name  c2  --memory  10m alpine ping fb.com 
+  100  docker  stats
+  101  docker  run  -itd  --name  c3  --cpus 1  alpine ping fb.com 
+  103  ls    -l   /var/run/docker.sock 
+  105  docker  pull  potainer/portainer 
+  106  docker  pull  portainer/portainer 
+  107  docker  images
+  108  docker  run -itd --name web -p 9000:9000  -v  /var/run/docker.sock:/var/run/docker.sock           portainer/portainer  
+  109  docker  ps
+  110  docker logs  web 
+  114  docker  run -itd --name web1 -p 9001:9000  -v  /var/run/docker.sock:/var/run/docker.sock           portainer/portainer  
+  115  docker  ps
+  117  docker  ps
+  118  docker  images
+  119  docker-compose
+  120  sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+  121  sudo  chmod  +x  /usr/bin/docker-compose 
+  124  docker-compose  -v
+  134  vim  docker-compose.yml  
+  135  cp  docker-compose.yml /tmp/
+  136  vim  /tmp/docker-compose.yml 
+  138  vim  docker-compose.yml 
+  139  cat  docker-compose.yml 
+  141  docker-compose up 
+  142  docker-compose ps
+  143  docker-compose images
+  144  docker  network ls
+  145  docker-compose  start
+  146  docker-compose  ps
+  148  docker-compose 
+  150  cat  docker-compose.yml 
+  151  docker  pull  ksdjfldskfs
+  152  docker  pull  apline
+  155  cat  docker-compose.yml 
+  163  docker-compose ps
+  164  docker-compose images
+  165  docker-compose  down 
+  173  vim  docker-compose.yml
+  175  cp  docker-compose.yml  /tmp/
+  176  cat  docker-compose.yml 
+  178  docker-compose up  -d
+  179  docker-compose  ps
+  181  cat  docker-compose.yml 
+  182  vim  docker-compose.yml 
+  183  docker-compose ps
+  184  docker-compose   images
+  185  docker-compose kill
+  186  docker-compose ps
+  187  cat  docker-compose.yml 
+  188  docker-compose ps
+  189  docker-compose start 
+  190  docker-compose ps
+  191  docker-compose kill
+  192  docker-compose start app11
+  193  docker-compose rm   app11
+  195  docker-compose ps
+  196  docker-compose logs
+  198  cat  docker-compose.yml 
+  199  docker-compose logs
+  200  cat  docker-compose.yml 
+  201  docker-compose logs app112
+  204  cat  docker-compose.yml 
+  205  vim  docker-compose.yml 
+  206  docker-compose up  -d
+  207  docker-compose ps 
+  209  docker-compose down
+  211  mv  docker-compose.yml  ashu.yml
+  213  docker-compose up -d
+  214  docker-compose  -f ashu.yml   up -d
+  215  docker-compose -f  ps
+  216  docker-compose -f  ashu.yml ps
+  217  docker-compose -f  ashu.yml down
+  219  mv  ashu.yml  docker-compose.yaml 
+  221  vim docker-compose.yaml 
+  222  docker-compose up -d
+  223  vim docker-compose.yaml 
+  224  docker-compose up -d
+  225  docker-compose ps 
+  227  cat  docker-compose.yaml 
+  228  cp  docker-compose.yaml  /tmp/
+  229  docker-compose down 
+  230  docker-compose  -e x=web1   up  -d
+  232  cat  docker-compose.yaml 
+  233  docker-compose  
+  234  cat  docker-compose.yaml 
+  236  docker-compose ps
+  237  cat  docker-compose.yaml 
+  270  rm  Dockerfile  web1  web2/ web.sh  -rf
+  300  git commit  -m  "day2 dockerfie example"
+  316  vim  docker-compose.yml 
+  317  cat  docker-compose.yml 
+  318  docker  images
+  319  docker-compose up  -d
+  320  docker-compose ps
+  322  cat  docker-compose.yml 
+  326  docker  images
+  327  docker-compose down
+  328  docker images
+  329  docker-compose up  -d
+  330  docker-compose ps
+  331  docker-compose down
+  336  vim docker-compose.yml 
+  338  docker-compose up  --build   -d
+  339  docker-compose ps
+  341  docker-compose down
+  344  docker-compose  up  -d
+  345  docker-compose  down
+  346  docker-compose  up --build -d
+  356  docker-compose ps
+  357  docker-compose  down 
+  359  mv  Dockerfile  ashu.dockerfile
+  361  docker-compose --build up  -d
+  363  docker-compose up --build   -d
+  365  vim  docker-compose.yml 
+  366  docker-compose up --build   -d
+  368  cat  docker-compose.yml 
+  370  vim docker-compose.yml 
+  372  cp docker-compose.yml   /tmp/
+  373  cat  docker-compose.yml 
+  375  docker-compose ps
+  376  docker-compose down
+  377  docker-compose up  --build  -d
+  378  docker-compose ps
+  379  cat  docker-compose.yml 
+  386  docker-compose down
+  388  vim docker-compose.yml 
+  389  docker-compose up  -d
+  390  vim docker-compose.yml 
+  399  vim  docker-compose.yml
+  400  view docker-compose.yml
+  401  docker-compose up -d
+  402  docker-compose ps
+  403  cat  docker-compose.yml 
+  405  cat docker-compose.yml 
+  407  docker  ps  
+  413  docker-compose  ps
+  414  docker-compose  down
+  417  docker ps
+  419  docker-compose ps 
+  422  cat  docker-compose.yml 
+  423  cp   docker-compose.yml   /tmp/
+  425  cat  docker-compose.yml 
+  431  vim ashuapp3/docker-compose.yml 
+  432  docker-compose ps
+  437  docker-compose ps
+  438  docker  ps  
+  439  docker kill $(docker ps -aq)
+  440  docker rm  $(docker ps -aq)
+  441  docker  network  rm  $(docker networks ls -q)
+  442  docker  network  rm  $(docker network ls -q)
+  444  cat  docker-compose.yml 
+  567  kubectl run ashuweb  --image=dockerashu
+  569  dockerashu
+  571  kubectl run ashwebpod --image=dockerashu/ashuciscowebapp:v202 --port 80 --restart Never           --dry-run   -o yaml 
+  572  kubectl run ashwebpod --image=dockerashu/ashuciscowebapp:v202 --port 80 --restart Never           --dry-run   -o yaml   >ashuwebpod.yml 
+  669  docker build  -t  dockerashu/ashuciscowebapp:v203 -f ashu.dockerfile            https://github.com/redashu/ciscoapril2020.git
+  670  docker login  
+  671  docker push  dockerashu/ashuciscowebapp:v203 
+  675  kubectl  set  image deployment ashudep1 ashuciscowebapp=dockerashu/ashuciscowebapp:v203
+  710  kubectl create  deployment  ashudep1 --image=dockerashu/ashuciscowebapp:v202  --dry-run  -o yaml 
+  711  kubectl create  deployment  ashudep1 --image=dockerashu/ashuciscowebapp:v202  --dry-run  -o yaml    >ashudep1.yml 
+  763  vim docker-compose.yml
+  764  docker-compose up  -d
+  765  docker-compose ps
+  766  cat  docker-compose.yml 
+  768  docker  run -it  --rm  alpine  sh 
+  769  docker  run -it  --rm   --user fire  alpine  sh 
+  770  docker  run -it  --rm   --user apache  alpine  sh 
+  771  docker  run -it  --rm   --user 1001 alpine  sh 
+  799  history    |   grep -i dockerashu
+  800  kubectl create deployment  ashudep1  --image=dockerashu/ashuciscowebapp:v202  --dry-run       -o yml  >ashuday5dep.yml 
+  802  kubectl create deployment  ashudep1  --image=dockerashu/ashuciscowebapp:v202  --dry-run       -o yaml  >ashuday5dep.yml 
+  803  kubectl create deployment  ashudep1  --image=dockerashu/ashuciscowebapp:v202  --dry-run       -o json   >dep.yml 
+  806  kubectl create deployment  ashudep1  --image=dockerashu/ashuciscowebapp:v202  --dry-run       -o json   >dep.json 
+  869  kubectl run  ashupod5  --image=dockerashu/ashuciscowebapp:v202  --restart Never --port 80    --dry-run  -o yaml  >pod5.yml
+  892  docker  images |  grep -i docker
+  893  kubectl set image deployment ashudep1  ashuciscowebapp=dockerashu/ashuciscowebapp:v203
+  894  kubectl set image deployment ashudep1  ashuciscowebapp=dockerashu/ashuciscowebapp:v203       -n ashutoshh
+  920  docker  images
+  921  docker  images |   grep -i docker
+  922  docker  tag  dockerashu/ashuciscowebapp:v202   ashutoshh.azurecr.io/web
+  923  docker login  ashutoshh.azurecr.io -u ashutoshh
+  924  docker  push   ashutoshh.azurecr.io/web
+  933  kubectl create secret  docker-registry  ashusec --docker-username=ashutoshh --docker-password=WJEr/psaSh+Oy4Mj=4vavm89xDKA7Jqq    --docker-server ashutoshh.azurecr.io  -n ashutoshh 
+  971  ls  -l  /var/run/docker.sock
+ 1033  curl  --unix-socket   http:/var/run/docker.sock/containers
+ 1034  curl  --unix-socket   http:/var/run/docker.sock/containers/json 
+ 1039  docker ps
+ 1040  docker kill $(docker ps -aq)
+ 1041  docker rm  $(docker ps -aq)
+ 1042  docker run -itd --name ok  alpine ping fb.com 
+ 1054  history   |    grep -i docker 
+ 1055  history   |    grep -i docker  >docker_history.txt

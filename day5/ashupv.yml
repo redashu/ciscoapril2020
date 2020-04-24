@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ashupv
+spec:
+  capacity:
+    storage: 5Gi   #  you can give like , 2Gi , 4Gi , 10Gi , 12Gi 
+  accessModes:
+    - ReadWriteOnce  #  ReadWriteMany , ReadOnlyMany 
+  storageClassName: slow   # fast , ok , general 
+  nfs:
+    path: /data/hari
+    server: 172.31.90.237

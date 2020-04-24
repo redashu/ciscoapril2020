@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+ app11:
+  image:  dockerashu/ashuciscowebapp:v202
+  environment:
+   x: "web2"
+  ports:
+   - "1280:80"
+
+ app112:
+  image: alpine
+  container_name: ashuc1112
+  command: ping  8.8.8.8

@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: ashumulticpod
+  name: ashumulticpod
+  namespace: ashutoshh
+spec:
+  volumes:
+   - name: ashuvol9
+     emptyDir: {}
+  containers:
+  - image: nginx    #primary container 
+    name: ashuc1
+    volumeMounts:
+     - name: ashuvol9
+       mountPath:  /usr/share/nginx/html/   #  this is documentroot of NGINX web server 
+    ports:
+    - containerPort: 80
+    resources: {}
+
+  - image: alpine   # helper container 
+    name: ashuc2
+    volumeMounts:
+     - name: ashuvol9
+       mountPath:  /ashu  #mounting volume  in  container 2
+    command: ["/bin/sh","-c","while  true; do echo   'Hello all time is `date +%T`'  >>/ashu/index.html; sleep 3; done"]

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: ashupod2
+
+spec:
+ containers:
+  - image: nginx
+    name: c1
+    ports:
+     - containerPort: 80   #  must match expose port in Dockerfile  this is optinal field it will take automatically

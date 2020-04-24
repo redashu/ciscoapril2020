@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashudep1
+  name: ashudep1   #  deployment name 
+spec:
+  replicas: 3  # pod count it will create replicaset first 
+  selector:
+    matchLabels:
+      app: ashudep1   # label of pods to be matched
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ashudep1  #lable of pod as  tempalte 
+    spec:
+      containers:
+      - image: dockerashu/ashuciscowebapp:v202
+        name: ashuciscowebapp
+        env:   #  you can introduce env here 
+         - name: x
+           value: web2
+        ports:
+         - containerPort: 80
+        resources: {}
+status: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashusvclb
+  name: ashusvclb
+spec:
+  ports:
+  - name: "80"
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: ashudep1
+  type: LoadBalancer
+status:
+  loadBalancer: {}

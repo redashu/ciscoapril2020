@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: storagepod
+  name: storagepod
+spec:
+  nodeName: ip-172-31-95-51.ec2.internal   # i want to schedule pod here only
+  volumes:  #  this volume will be created  when we run this yaml 
+   - name: ashuvol11
+     hostPath:
+      path: /etc
+      type: Directory
+  containers:
+  - image: alpine
+    name: storagepod
+    command: ["/bin/sh","-c","ping fb.com"]
+    volumeMounts:   # mounting voluem 
+     - name: ashuvol11
+       mountPath: /mnt/data  #  mount path can be anylocation with in the POD 
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}

@@ -1,0 +1,19 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: cisco1234
+
+  adminer:
+    image: adminer   # is a webserver  image 
+    restart: always
+    depends_on:
+     - db 
+    ports:
+      - 9944:8080 #  container port

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: ashupod5
+  name: ashupod5
+spec:
+  containers:
+  - image: dockerashu/ashuciscowebapp:v202
+    name: ashupod5
+    env:
+     - name: x   # name of variable in docker image
+       valueFrom:
+        configMapKeyRef:
+         name: ashuvar1  #  name of configmap
+         key: x       # this is my key name 
+    ports:
+    - containerPort: 80
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}
